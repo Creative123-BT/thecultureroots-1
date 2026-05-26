@@ -18,8 +18,8 @@ export default function HeroBanner() {
   }, []);
 
   const bannerImageSource = isMobile
-    ? "/images/hero-section/hero.jpeg"  // <-- IMPORTANT: Replace with your actual mobile image file name
-    : "/images/hero-section/Hero-banner.png";
+    ? "/images/hero-section/hero-final.jpg"  // <-- IMPORTANT: Replace with your actual mobile image file name
+    : "/images/hero-section/hero-final.jpg"; // <-- IMPORTANT: Replace with your actual desktop image file name
 
   return (
     <section style={{
@@ -51,31 +51,31 @@ export default function HeroBanner() {
         <div style={{
           position: "absolute",
           top: 0, left: 0, right: 0, bottom: 0,
-          background: "rgba(0,0,0,0.4)"
+          background: "rgba(0,0,0,0)"
         }} />
       </div>
 
       <div className="container hero-content-container" style={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "flex-end",
+        justifyContent: "flex-start",
         height: "100%",
-        paddingBottom: "10vh",
+        paddingTop: "20vh",
       }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-          style={{ maxWidth: "800px" }}
+          style={{ maxWidth: "1200px" }}
         >
           <motion.h1
             className="hero-title"
             style={{
-              fontSize: "clamp(2.5rem, 6vw, 4.8rem)",
-              fontWeight: 600,
+              fontSize: "clamp(2rem, 6vw, 5.5rem)",
+              fontWeight: 500,
               lineHeight: 1.1,
               letterSpacing: "-0.03em",
-              marginBottom: "1.5rem",
+              marginBottom: "1rem",
               color: "white"
             }}
           >
@@ -83,39 +83,56 @@ export default function HeroBanner() {
           </motion.h1>
 
           <p className="hero-description" style={{
-            fontSize: "clamp(1rem, 2vw, 1.2rem)",
-            fontWeight: 500,
-            opacity: 0.9,
+            fontSize: "clamp(0.7rem, 2vw, 0.8rem)",
+            fontWeight: 400,
+            opacity: 0.8,
             marginBottom: "3rem",
             maxWidth: "600px",
             color: "white"
           }}>
             The multicultural marketing agency built for brands ready to lead in the world's most diverse markets.
           </p>
-
-          <motion.button
-            whileHover="hover"
-            whileTap={{ scale: 0.95 }}
-            onClick={() => window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1PUl1axcbE4O_8tOgSeLP6OGYBJrBAem_WWsrJq9u6MNjgySisCJdUmz43NwVkuGppFuHrstYd", "_blank", "noopener,noreferrer")}
-            style={{
-              padding: "1rem 2rem",
-              background: "white",
-              color: "black",
-              border: "none",
-              borderRadius: "50px",
-              fontSize: "1rem",
-              fontWeight: 700,
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem"
-            }}
-          >
-            Let's Talk
-            <motion.span variants={{ hover: { x: 5 } }}>
-              <ArrowRight size={20} />
-            </motion.span>
-          </motion.button>
+<motion.button
+  whileHover="hover"
+  whileTap={{ scale: 0.95 }}
+  onClick={() => window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1PUl1axcbE4O_8tOgSeLP6OGYBJrBAem_WWsrJq9u6MNjgySisCJdUmz43NwVkuGppFuHrstYd", "_blank", "noopener,noreferrer")}
+  style={{
+    padding: "clamp(0.5rem, 2vw, .6rem) clamp(1rem, 4vw, .8rem)",
+    background: "transparent",
+    color: "white",
+    border: "1px solid rgba(255, 255, 255)",
+    borderRadius: "50px",
+    fontSize: "clamp(0.875rem, 2vw, 1rem)",
+    fontWeight: 500,
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "clamp(1rem, 2vw, 1.5rem)",
+    width: "auto",
+    minWidth: "fit-content",
+    position: "relative",
+    overflow: "hidden"
+  }}
+>
+  <span>Let's Talk</span>
+  <motion.span 
+    variants={{ hover: { x: 3 } }}
+    style={{
+      background: "white",
+      color: "black",
+      borderRadius: "50%",
+      width: "clamp(28px, 5vw, 36px)",
+      height: "clamp(28px, 5vw, 36px)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      flexShrink: 0
+    }}
+  >
+    <ArrowRight size={18} style={{ width: "clamp(14px, 3vw, 18px)", height: "clamp(14px, 3vw, 18px)" }} />
+  </motion.span>
+</motion.button>
         </motion.div>
       </div>
 
@@ -132,7 +149,7 @@ export default function HeroBanner() {
             margin-bottom: 1rem !important;
           }
           .hero-description {
-            font-size: 1.05rem !important;
+            // font-size: rem !important;
             margin-bottom: 2rem !important;
           }
         }
